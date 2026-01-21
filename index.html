@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Navya E | Python Full Stack Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+    <script defer>
+        emailjs.init("UkQZkLtb3IlQQ2yBA");
+    </script>
+    <script src="script.js" defer></script> -->
+
+
+
+
+</head>
+
+
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="profile">
+            <img src="profile.jpg" alt="Navya E">
+            <h4>Navya E</h4>
+            <span>Python Full Stack Developer</span>
+        </div>
+
+        <nav>
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('about')">About</button>
+            <button onclick="showSection('skills')">Skills</button>
+            <button onclick="showSection('experience')">Experience</button>
+            <button onclick="showSection('projects')">Projects</button>
+            <button onclick="showSection('services')">Services</button>
+            <button onclick="showSection('contact')">Contact</button>
+        </nav>
+
+        <button id="themeToggle" class="theme-btn">🌙</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="content">
+
+        <!-- HOME -->
+        <section id="home" class="section ">
+            <div class="hero-wrapper">
+
+                <div class="hero-text">
+                    <span class="hero-badge">👋 Welcome to my portfolio</span>
+
+                    <h1>
+                        Hi, I’m <span class="hero-name">Navya E</span>
+                    </h1>
+
+                    <h2>Python Full Stack Developer</h2>
+
+                    <p>
+                        B.Tech graduate from Kerala specializing in building
+                        scalable, secure, and user-friendly web applications
+                        using Django, React, and modern web technologies.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="https://drive.google.com/file/d/1VGeCM7gpuemcdqU1iCREmHL-wO1UPtA0/view?usp=sharing"
+                            target="_blank" class="btn-primary">
+                            View Resume
+                        </a>
+                        <a href="#contact" onclick="showSection('contact')" class="btn-outline">
+                            Let’s Talk
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="image-glow"></div>
+                    <img src="profile.jpg" alt="Navya E">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section about-section">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">
+                A brief introduction to who I am and how I approach development.
+            </p>
+
+            <div class="about-grid">
+
+                <!-- About Description -->
+                <div class="about-card gradient-a1">
+                    <h5>Professional Summary</h5>
+                    <p>
+                        I am a <strong>Python Full Stack Developer</strong> and B.Tech graduate from Kerala,
+                        passionate about building secure, scalable, and high-performance web applications.
+                        I have hands-on experience working with <strong>Django, React.js, REST APIs,
+                            and MySQL</strong>, and I enjoy solving real-world problems through clean,
+                        maintainable code.
+                    </p>
+                    <p>
+                        I focus on writing efficient backend logic, designing intuitive user interfaces,
+                        and following industry best practices to deliver reliable solutions.
+                    </p>
+                </div>
+
+                <!-- Quick Info -->
+                <div class="about-card gradient-a2">
+                    <h5>Quick Info</h5>
+                    <ul class="about-info">
+                        <li><strong>Degree:</strong> B.Tech in Computer Science & Engineering</li>
+                        <li><strong>Role:</strong> Python Full Stack Developer</li>
+                        <li><strong>Location:</strong> Kerala, India</li>
+                        <li><strong>Languages:</strong> English, Malayalam</li>
+                        <li><strong>Availability:</strong> Open to internships & full-time roles</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SKILLS -->
+        <section id="skills" class="section skills-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">
+                Technologies and tools I use to build scalable, modern applications.
+            </p>
+
+            <div class="skills-grid">
+
+                <!-- Backend -->
+                <div class="skill-category gradient-s1">
+                    <h5>Backend</h5>
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>REST APIs</li>
+                        <li>Authentication</li>
+                    </ul>
+                </div>
+
+                <!-- Frontend -->
+                <div class="skill-category gradient-s2">
+                    <h5>Frontend</h5>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>React.js</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+
+                <!-- Database -->
+                <div class="skill-category gradient-s3">
+                    <h5>Database</h5>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>Database Design</li>
+                        <li>Query Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-category gradient-s4">
+                    <h5>Tools & Concepts</h5>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>MVC Architecture</li>
+                        <li>Agile / Scrum</li>
+                        <li>API Integration</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section experience-section">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">
+                Practical industry experience gained through hands-on development.
+            </p>
+
+            <div class="experience-wrapper">
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h4>Python Full Stack Developer Intern</h4>
+                        <span>Luminar Technolab Pvt. Ltd • Calicut, Kerala</span>
+                        <p class="experience-duration">July 2025 – Present</p>
+                    </div>
+
+                    <ul class="experience-points">
+                        <li>Developed and maintained full-stack web applications using <strong>Django</strong> and
+                            <strong>React.js</strong>.
+                        </li>
+                        <li>Designed and implemented <strong>RESTful APIs</strong> with secure authentication and
+                            authorization.</li>
+                        <li>Created responsive UI components using <strong>HTML, CSS, Bootstrap</strong>.</li>
+                        <li>Optimized database queries and backend logic, improving performance and response time.
+                        </li>
+                        <li>Collaborated using <strong>Git & GitHub</strong> in an Agile development environment.
+                        </li>
+                    </ul>
+
+                    <div class="experience-tags">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>React</span>
+                        <span>REST API</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section projects-section">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">
+                Selected projects showcasing my full stack development experience.
+            </p>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card gradient-p1">
+                    <h5>Learning Flashcards Web App</h5>
+                    <p>
+                        A full-stack learning platform with authentication, quizzes,
+                        score tracking, and role-based access.
+                    </p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>React</span>
+                        <span>MySQL</span>
+                    </div>
+                    <a href="https://github.com/navyaenair" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card gradient-p2">
+                    <h5>Diabetes Diary</h5>
+                    <p>
+                        Health monitoring system to manage daily sugar levels,
+                        medications, and weight records with secure dashboards.
+                    </p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>MySQL</span>
+                        <span>Bootstrap</span>
+                    </div>
+                    <a href="https://github.com/navyaenair" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card gradient-p3">
+                    <h5>EduVerse</h5>
+                    <p>
+                        Student & alumni management system with authentication,
+                        dashboards, and optimized data retrieval.
+                    </p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>React</span>
+                        <span>REST API</span>
+                    </div>
+                    <a href="https://github.com/navyaenair" target="_blank" class="project-link">
+                        View on GitHub →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- SERVICES -->
+        <section id="services" class="section services-section">
+            <h2 class="section-title">Services</h2>
+            <p class="section-subtitle">
+                High-quality development services focused on performance, scalability, and clean UI.
+            </p>
+
+            <div class="service-grid">
+
+                <!-- Service 1 -->
+                <div class="service-box gradient-1">
+                    <i class="bi bi-code-slash"></i>
+                    <h5>Full Stack Web Development</h5>
+                    <p>
+                        End-to-end web application development using
+                        Python, Django, React, and MySQL with scalable architecture.
+                    </p>
+                    <a href="https://github.com/navyaenair" target="_blank" class="service-link">
+                        View Work on GitHub →
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-box gradient-2">
+                    <i class="bi bi-server"></i>
+                    <h5>Backend & API Development</h5>
+                    <p>
+                        Secure RESTful APIs, authentication systems, database design,
+                        and optimized backend logic.
+                    </p>
+                    <a href="https://github.com/navyaenair" target="_blank" class="service-link">
+                        Backend Projects →
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-box gradient-3">
+                    <i class="bi bi-layout-text-window"></i>
+                    <h5>Frontend UI Development</h5>
+                    <p>
+                        Clean, responsive, and modern user interfaces using
+                        HTML, CSS, Bootstrap, and React.
+                    </p>
+                    <a href="https://github.com/navyaenair" target="_blank" class="service-link">
+                        UI Projects →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact">
+            <h2 class="section-title">CONTACT ME</h2>
+            <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly hello 👋</p>
+
+            <div class=" contact-wrapper">
+                <form class="contact-form" onsubmit="sendMail(event)">
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="from_name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="from_email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-btn">
+                        <i class="bi bi-send"></i> Send Message
+                    </button>
+                    <p id="formMessage" class="form-message"></p>
+                </form>
+            </div>
+        </section>
+
+
+
+
+        <!-- FOOTER -->
+        <footer class="footer glass-footer" id="footer">
+            <div class="footer-container">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <h4>Navya E</h4>
+                    <p>Python Full Stack Developer</p>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-contact">
+                    <p><i class="bi bi-envelope"></i> navyarathnakaran123@gmail.com</p>
+                    <p><i class="bi bi-telephone"></i> +91 9061905831</p>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-social">
+                    <a href="https://github.com/navyaenair" target="_blank">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/navya-e-nair" target="_blank">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Timezone -->
+            <div class="footer-bottom">
+                <span class="timezone-box" id="timezone"></span>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                © 2026 Navya E • All Rights Reserved
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="backToTop" title="Back to Top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+
+
+    </main>
+
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init("UkQZkLtb3IlQQ2yBA"); 
+    </script>
+
+    <!-- Your custom JS -->
+    <script src="script.js"></script>
+
+
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
