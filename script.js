@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 /* ================= EMAILJS CONTACT FORM ================= */
 function sendMail(e) {
     e.preventDefault();
@@ -103,16 +102,30 @@ function sendMail(e) {
         return;
     }
 
-    emailjs.send("service_b67rt3f", "template_yi5n6w3", {
+    const params = {
         from_name: name,
         from_email: email,
         message: message
-    })
+    };
+
+    /* 1️⃣ Send message to YOU */
+    emailjs.send("service_b67rt3f", "template_yi5n6w3", params)
+
+    /* 2️⃣ Auto-reply to USER */
     .then(() => {
-        formMessage.textContent = "✅ Message sent successfully!";
+        return emailjs.send(
+            "service_b67rt3f",
+            "template_h24lykb", // 👈 create this template
+            params
+        );
+    })
+
+    .then(() => {
+        formMessage.textContent = "✅ Message sent! Check your email 📩";
         formMessage.style.color = "lime";
         document.querySelector(".contact-form").reset();
     })
+
     .catch(err => {
         console.error("EmailJS Error:", err);
         formMessage.textContent = "❌ Failed to send message.";
