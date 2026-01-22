@@ -113,3 +113,24 @@ function sendMail(e) {
             formMessage.style.color = "red";
         });
 }
+
+
+
+
+
+const sidebar = document.getElementById("sidebar");
+const toggleBtn = document.getElementById("menuToggle");
+
+toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+});
+
+/* Auto close when clicking menu item */
+document.querySelectorAll(".sidebar button").forEach(btn => {
+    btn.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+    });
+});
+
+
+
