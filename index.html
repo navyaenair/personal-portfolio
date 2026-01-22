@@ -439,52 +439,6 @@
         emailjs.init("UkQZkLtb3IlQQ2yBA"); 
     </script>
 
-    <script>
-        const sidebar = document.getElementById("sidebar");
-        const footer = document.getElementById("footer");
-
-        function toggleMenu() {
-            sidebar.classList.toggle("active");
-        }
-
-        function showSection(sectionId) {
-
-            // Hide all sections
-            document.querySelectorAll(".section").forEach(sec => {
-                sec.classList.remove("active");
-            });
-
-            // Show selected section
-            const section = document.getElementById(sectionId);
-            if (section) section.classList.add("active");
-
-            /* SHOW SIDEBAR ONLY ON HOME (mobile) */
-            if (sectionId === "home") {
-                sidebar.style.display = "block";
-            } else if (window.innerWidth <= 767) {
-                sidebar.classList.remove("active");
-                sidebar.style.display = "none";
-            }
-
-            /* SHOW FOOTER ONLY ON CONTACT */
-            if (sectionId === "contact") {
-                footer.classList.add("show");
-            } else {
-                footer.classList.remove("show");
-            }
-
-            /* Auto close sidebar on mobile */
-            if (window.innerWidth <= 767) {
-                sidebar.classList.remove("active");
-            }
-        }
-
-        // Ensure Home loads correctly
-        window.addEventListener("load", () => {
-            showSection("home");
-        });
-    </script>
-
 
     <!-- Your custom JS -->
     <script src="script.js"></script>

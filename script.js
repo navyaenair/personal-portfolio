@@ -1,86 +1,93 @@
-function showSection(id) {
-    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
+/* ================= DOM READY ================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-showSection("home");
-
-// Theme toggle
-document.getElementById("themeToggle").onclick = () =>
-    document.body.classList.toggle("dark");
-
-/* FOOTER ANIMATION ON SCROLL */
-const footer = document.getElementById("footer");
-
-window.addEventListener("load", () => {
-    setTimeout(() => footer.classList.add("show"), 400);
-});
-
-/* TIMEZONE */
-setInterval(() => {
-    document.getElementById("timezone").innerText =
-        "IST • " + new Date().toLocaleString("en-IN", {
-            timeZone: "Asia/Kolkata",
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        });
-}, 1000);
-
-/* BACK TO TOP */
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-});
-
-backToTop.onclick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-
-// Show only selected section
-function showSection(sectionId) {
+    /* ================= ELEMENTS ================= */
     const sections = document.querySelectorAll(".section");
+    const footer = document.getElementById("footer");
+    const sidebar = document.getElementById("sidebar");
+    const themeToggle = document.getElementById("themeToggle");
+    const backToTop = document.getElementById("backToTop");
+    const timezoneEl = document.getElementById("timezone");
+    const toggleBtn = document.getElementById("menuToggle");
 
-    sections.forEach(section => {
-        section.classList.remove("active");
+    /* ================= SECTION SWITCHING ================= */
+    window.showSection = function (sectionId) {
+        sections.forEach(sec => sec.classList.remove("active"));
+
+        const target = document.getElementById(sectionId);
+        if (target) {
+            target.classList.add("active");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        /* Footer ONLY on home */
+        if (sectionId === "home") {
+            footer.classList.add("show");
+            sidebar.style.display = "block";
+        } else {
+            footer.classList.remove("show");
+            if (window.innerWidth <= 767) {
+                sidebar.classList.remove("active");
+                sidebar.style.display = "none";
+            }
+        }
+    };
+
+    /* Load HOME by default */
+    showSection("home");
+
+    /* ================= DARK / LIGHT MODE ================= */
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+
+        const isDark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        themeToggle.textContent = isDark ? "☀️" : "🌙";
     });
 
-    const target = document.getElementById(sectionId);
-    if (target) {
-        target.classList.add("active");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-}
+    /* ================= TIMEZONE ================= */
+    setInterval(() => {
+        timezoneEl.textContent =
+            "IST • " +
+            new Date().toLocaleTimeString("en-IN", {
+                timeZone: "Asia/Kolkata",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
+    }, 1000);
 
-// Show HOME by default on first load
-document.addEventListener("DOMContentLoaded", () => {
-    showSection("home");
+    /* ================= BACK TO TOP ================= */
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* ================= MOBILE SIDEBAR ================= */
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+    }
+
+    document.querySelectorAll(".sidebar button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+        });
+    });
+
 });
 
 
-function showSection(id) {
-    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
-
-showSection("home");
-
-// Theme toggle
-document.getElementById("themeToggle").onclick = () =>
-    document.body.classList.toggle("dark");
-
-// Timezone
-setInterval(() => {
-    document.getElementById("timezone").innerText =
-        "Indian Standard Time: " +
-        new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-}, 1000);
-
-
-
-
+/* ================= EMAILJS CONTACT FORM ================= */
 function sendMail(e) {
     e.preventDefault();
 
@@ -95,42 +102,19 @@ function sendMail(e) {
         return;
     }
 
-    const params = {
+    emailjs.send("service_b67rt3f", "template_yi5n6w3", {
         from_name: name,
         from_email: email,
         message: message
-    };
-
-    emailjs.send("service_b67rt3f", "template_yi5n6w3", params)
-        .then(() => {
-            formMessage.textContent = "✅ Message sent successfully!";
-            formMessage.style.color = "green";
-            document.querySelector(".contact-form").reset();
-        })
-        .catch((error) => {
-            console.error("EmailJS error:", error);
-            formMessage.textContent = "❌ Failed to send message.";
-            formMessage.style.color = "red";
-        });
-}
-
-
-
-
-
-const sidebar = document.getElementById("sidebar");
-const toggleBtn = document.getElementById("menuToggle");
-
-toggleBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-});
-
-/* Auto close when clicking menu item */
-document.querySelectorAll(".sidebar button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        sidebar.classList.remove("active");
+    })
+    .then(() => {
+        formMessage.textContent = "✅ Message sent successfully!";
+        formMessage.style.color = "lime";
+        document.querySelector(".contact-form").reset();
+    })
+    .catch(err => {
+        console.error("EmailJS Error:", err);
+        formMessage.textContent = "❌ Failed to send message.";
+        formMessage.style.color = "red";
     });
-});
-
-
-
+}
