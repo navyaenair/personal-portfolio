@@ -1,3 +1,4 @@
+
 /* ================= DOM READY ================= */
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -12,24 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= SECTION SWITCHING ================= */
     window.showSection = function (sectionId) {
+
+        // Hide all sections
         sections.forEach(sec => sec.classList.remove("active"));
 
+        // Show selected section
         const target = document.getElementById(sectionId);
         if (target) {
             target.classList.add("active");
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        /* Footer ONLY on home */
+        // Footer ONLY on home
         if (sectionId === "home") {
             footer.classList.add("show");
-            sidebar.style.display = "block";
         } else {
             footer.classList.remove("show");
-            if (window.innerWidth <= 767) {
-                sidebar.classList.remove("active");
-                sidebar.style.display = "none";
-            }
+        }
+
+        // Auto-close sidebar on mobile AFTER clicking menu
+        if (window.innerWidth <= 767) {
+            sidebar.classList.remove("active");
         }
     };
 
@@ -72,18 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ================= MOBILE SIDEBAR ================= */
-    if (toggleBtn) {
-        toggleBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("active");
-        });
-    }
+    toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+    });
 
     document.querySelectorAll(".sidebar button").forEach(btn => {
         btn.addEventListener("click", () => {
             sidebar.classList.remove("active");
         });
     });
-
 });
 
 
