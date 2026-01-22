@@ -87,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+
+
 /* ================= EMAILJS CONTACT FORM ================= */
 function sendMail(e) {
     e.preventDefault();
@@ -105,7 +108,8 @@ function sendMail(e) {
     const params = {
         from_name: name,
         from_email: email,
-        message: message
+        message: message,
+        reply_to: email   // ✅ IMPORTANT FOR MANUAL REPLY
     };
 
     /* 1️⃣ Send message to YOU */
@@ -115,7 +119,7 @@ function sendMail(e) {
     .then(() => {
         return emailjs.send(
             "service_b67rt3f",
-            "template_h24lykb", // 👈 create this template
+            "template_h24lykb", // auto-reply template
             params
         );
     })
