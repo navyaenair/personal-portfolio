@@ -11,34 +11,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const timezoneEl = document.getElementById("timezone");
     const toggleBtn = document.getElementById("menuToggle");
 
-    /* ================= SECTION SWITCHING ================= */
-    window.showSection = function (sectionId) {
+   
+/* ================= SECTION SWITCHING ================= */
+window.showSection = function (sectionId) {
 
-        // Hide all sections
-        sections.forEach(sec => sec.classList.remove("active"));
+    // Hide all sections
+    sections.forEach(sec => sec.classList.remove("active"));
 
-        // Show selected section
-        const target = document.getElementById(sectionId);
-        if (target) {
-            target.classList.add("active");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
+    // Show selected section
+    const target = document.getElementById(sectionId);
+    if (target) {
+        target.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-        // Footer ONLY on home
-        if (sectionId === "home") {
-            footer.classList.add("show");
-        } else {
-            footer.classList.remove("show");
-        }
+    /* FOOTER LOGIC */
+    if (sectionId === "home" && window.innerWidth > 767) {
+        // ✅ Desktop only
+        footer.classList.add("show");
+    } else {
+        // ❌ Mobile OR other pages
+        footer.classList.remove("show");
+    }
 
-        // Auto-close sidebar on mobile AFTER clicking menu
-        if (window.innerWidth <= 767) {
-            sidebar.classList.remove("active");
-        }
-    };
+    // Auto-close sidebar on mobile
+    if (window.innerWidth <= 767) {
+        sidebar.classList.remove("active");
+    }
+};
 
-    /* Load HOME by default */
-    showSection("home");
+
+window.addEventListener("resize", () => {
+    const activeSection = document.querySelector(".section.active");
+
+    if (!activeSection) return;
+
+    if (activeSection.id === "home" && window.innerWidth > 767) {
+        footer.classList.add("show");
+    } else {
+        footer.classList.remove("show");
+    }
+});
+
+
 
     /* ================= DARK / LIGHT MODE ================= */
     if (localStorage.getItem("theme") === "dark") {
